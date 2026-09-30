@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Juntos a través de la historia</title>
+<meta name="description" content="Desde el principio de la historia hasta el último rincón del futuro. Mil vidas, mil épocas. Nosotros. Siempre. Tú y yo.">
+<meta name="theme-color" content="#0d0a0f">
+<!-- Vista previa al compartir el enlace (WhatsApp, Telegram, etc.) -->
+<!-- IMPORTANTE: cambia TUUSUARIO y TUREPO por los tuyos de GitHub -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Juntos a través de la historia">
+<meta property="og:description" content="Desde el principio de la historia hasta el último rincón del futuro. Mil vidas, mil épocas. Nosotros. Siempre. Tú y yo.">
+<meta property="og:image" content="https://TUUSUARIO.github.io/TUREPO/img/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://TUUSUARIO.github.io/TUREPO/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://TUUSUARIO.github.io/TUREPO/img/preview.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230d0a0f'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='%23e3c07a'%3E✦%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#e3c07a; --gold2:#b98a3e; --ink:#0d0a0f; --paper:#f4ead7;
+  --serif:'Cormorant Garamond',Georgia,serif; --title:'Cinzel',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--ink);color:var(--paper);font-family:var(--serif);font-size:1.25rem;overflow-x:hidden}
+#bg{position:fixed;inset:-60px;background-size:cover;background-position:center;filter:blur(45px) brightness(.38) saturate(1.3);transition:background-image .6s, opacity .6s;z-index:-3}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at center,transparent 30%,rgba(0,0,0,.75) 100%)}
+#dust{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+#dust i{position:absolute;bottom:-10px;width:3px;height:3px;border-radius:50%;background:var(--gold);opacity:0;box-shadow:0 0 8px var(--gold);animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(0);opacity:0}15%{opacity:.8}100%{transform:translateY(-105vh) translateX(40px);opacity:0}}
+
+#app{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px}
+.enter{animation:enter .8s cubic-bezier(.2,.7,.2,1) both}
+@keyframes enter{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:none}}
+
+/* botones */
+.btn{position:relative;display:inline-flex;align-items:center;gap:.6em;padding:.85em 2em;border:1px solid var(--gold);color:var(--gold);background:rgba(0,0,0,.35);
+  font-family:var(--title);letter-spacing:.2em;text-transform:uppercase;font-size:.85rem;cursor:pointer;text-decoration:none;overflow:hidden;backdrop-filter:blur(6px);transition:color .4s,box-shadow .4s,transform .3s}
+.btn::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--gold2),var(--gold));transform:translateX(-101%);transition:transform .45s cubic-bezier(.2,.7,.2,1);z-index:-1}
+.btn:hover{color:#1a1208;box-shadow:0 0 30px rgba(227,192,122,.45);transform:translateY(-3px)}
+.btn:hover::before{transform:none}
+.btn[disabled]{opacity:.3;pointer-events:none}
+
+/* portada */
+.cover{position:fixed;inset:0;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+.cover-img{position:absolute;inset:0;background-size:cover;background-position:center 20%;z-index:-1;animation:kb 30s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.12)}}
+.cover::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(rgba(5,3,8,.55),rgba(5,3,8,.45) 40%,rgba(5,3,8,.85))}
+.cover h1{font-family:var(--title);font-weight:700;font-size:clamp(2rem,4.8vw,4.3rem);letter-spacing:.12em;line-height:1.15;
+  background:linear-gradient(180deg,#fff3d1,var(--gold) 55%,var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 3px 10px rgba(0,0,0,.9))}
+.cover .orn{color:var(--gold);letter-spacing:.6em;margin:1rem 0;opacity:.9}
+.cover p{max-width:42ch;font-style:italic;font-size:1.5rem;margin:0 auto 2.2rem;text-shadow:0 2px 12px #000}
+.cover p span{display:block}
+.cover p span+span{margin-top:.8rem;font-family:var(--title);font-style:normal;font-size:.95rem;letter-spacing:.14em;line-height:1.7;color:var(--gold)}
+.cover-box{text-align:center;position:relative;max-width:960px;width:100%;padding:clamp(28px,5vw,56px) clamp(20px,5vw,60px);border-radius:6px;
+  background:radial-gradient(ellipse at center,rgba(8,5,12,.82),rgba(8,5,12,.68));border:1px solid rgba(227,192,122,.35);
+  backdrop-filter:blur(12px) saturate(1.1);box-shadow:0 30px 90px rgba(0,0,0,.75),inset 0 0 60px rgba(0,0,0,.35)}
+.cover-box::before,.cover-box::after{content:"";position:absolute;width:26px;height:26px;border:2px solid var(--gold)}
+.cover-box::before{top:-7px;left:-7px;border-right:0;border-bottom:0}
+.cover-box::after{bottom:-7px;right:-7px;border-left:0;border-top:0}
+.cover p{text-shadow:0 2px 10px #000}
+.cover p span:nth-child(3){margin-top:.35rem;font-size:1.15rem;letter-spacing:.3em}
+.extras-btn{position:fixed;right:24px;bottom:24px;padding:.6em 1.3em;font-size:.7rem}
+
+/* página de historia */
+.story{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:680px;width:100%;padding-top:30px}
+.era{font-family:var(--title);color:var(--gold);letter-spacing:.3em;font-size:clamp(1.1rem,2.6vw,1.6rem);font-weight:600;margin-bottom:1rem;text-shadow:0 2px 14px rgba(0,0,0,.7)}
+.frame{position:relative;width:min(88vw,calc(min(62vh,640px)*2/3));aspect-ratio:2/3;padding:10px;background:linear-gradient(135deg,var(--gold),var(--gold2) 50%,#f7e2a8);border-radius:4px;
+  cursor:zoom-in;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease-out,box-shadow .4s;box-shadow:0 25px 60px rgba(0,0,0,.7)}
+.frame:hover{box-shadow:0 30px 80px rgba(0,0,0,.85),0 0 60px rgba(227,192,122,.35)}
+.frame img{width:100%;height:100%;object-fit:cover;display:block;border-radius:2px}
+.frame::after{content:"⤢";position:absolute;right:18px;top:18px;width:36px;height:36px;display:grid;place-items:center;border-radius:50%;background:rgba(0,0,0,.55);color:var(--gold);opacity:0;transition:opacity .3s}
+.frame:hover::after{opacity:1}
+.story h2{font-family:var(--title);font-size:clamp(1rem,2.4vw,1.35rem);letter-spacing:.12em;margin:1.6rem 0 .6rem;color:#fff3d1;line-height:1.4}
+.story h2::after{content:"";display:block;width:70px;height:1px;margin:.8rem auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.story p{line-height:1.65;opacity:.92;max-width:58ch;text-align:justify;hyphens:auto;margin-top:1rem;font-size:1.2rem}
+.story h2+p{margin-top:.4rem}
+.nav{display:flex;gap:16px;margin:1.8rem 0 1rem;flex-wrap:wrap;justify-content:center}
+.dots{width:min(320px,80vw);height:3px;background:rgba(255,255,255,.12);border-radius:3px;overflow:hidden}
+.dots b{display:block;height:100%;background:linear-gradient(90deg,var(--gold2),var(--gold));transition:width .6s}
+.count{font-family:var(--title);font-size:.7rem;letter-spacing:.3em;color:var(--gold);margin-top:.6rem;opacity:.8}
+.home{position:fixed;left:20px;top:20px;padding:.5em 1.1em;font-size:.65rem}
+
+/* final */
+.end{text-align:center;max-width:620px}
+.end h1{font-family:var(--title);font-size:clamp(1.8rem,5vw,3.2rem);letter-spacing:.12em;color:#fff3d1;margin:1.5rem 0 1rem}
+.end p{line-height:1.7;margin-bottom:1.1rem}
+.end p:last-of-type{font-style:italic;color:var(--gold);font-size:1.4rem;margin:1.4rem 0 2rem}
+.end .frame{margin:0 auto;width:min(80vw,calc(min(46vh,440px)*2/3))}
+
+/* galería */
+.gal{width:100%;max-width:1100px}
+.gal h1{font-family:var(--title);text-align:center;letter-spacing:.2em;color:#fff3d1;font-size:clamp(1.6rem,4vw,2.6rem);margin:2.5rem 0 .5rem}
+.gal .sub{text-align:center;font-style:italic;opacity:.8;margin-bottom:2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px;margin-bottom:2.5rem}
+.card{position:relative;aspect-ratio:2/3;overflow:hidden;border:1px solid rgba(227,192,122,.35);border-radius:4px;cursor:zoom-in;background:#000;animation:enter .7s both;transition:transform .4s,box-shadow .4s,border-color .4s}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform .7s,filter .5s;filter:saturate(.85) brightness(.9)}
+.card:hover{transform:translateY(-8px) scale(1.02);border-color:var(--gold);box-shadow:0 20px 50px rgba(0,0,0,.7),0 0 35px rgba(227,192,122,.3)}
+.card:hover img{transform:scale(1.08);filter:none}
+.card span{position:absolute;left:0;right:0;bottom:0;padding:26px 12px 12px;font-family:var(--title);font-size:.72rem;letter-spacing:.15em;text-align:center;background:linear-gradient(transparent,rgba(0,0,0,.9));transform:translateY(100%);transition:transform .4s}
+.card:hover span{transform:none}
+.gal .back{display:flex;justify-content:center;padding-bottom:2rem}
+
+/* música */
+.snd{position:fixed;top:14px;right:18px;z-index:30;width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--gold);border-radius:50%;color:var(--gold);background:rgba(0,0,0,.5);backdrop-filter:blur(6px);cursor:pointer;transition:background .3s,color .3s,transform .3s}
+.snd:hover{background:var(--gold);color:#1a1208;transform:scale(1.08)}
+.snd .x{display:none}
+.snd.off .w{display:none}
+.snd.off .x{display:block}
+.snd.idle{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(227,192,122,.45)}50%{box-shadow:0 0 0 10px rgba(227,192,122,0)}}
+.credit{margin-top:1.4rem;font-family:var(--title);font-size:.6rem;letter-spacing:.2em;color:var(--gold);opacity:.6}
+
+/* mapa del viaje */
+.map-btn{bottom:72px}
+.mcard{display:block;cursor:pointer;color:inherit;text-decoration:none}
+.mcard span{transform:none;padding:22px 8px 10px;font-size:.62rem}
+.mcard em{position:absolute;top:8px;left:8px;z-index:2;font-style:normal;font-family:var(--title);font-size:.7rem;color:var(--gold);background:rgba(0,0,0,.7);border:1px solid rgba(227,192,122,.5);border-radius:50%;width:30px;height:30px;display:grid;place-items:center}
+.gal .grid.map{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+
+/* aparición de los textos */
+@keyframes txt{from{opacity:0;transform:translateY(14px)}to{opacity:var(--o,1);transform:none}}
+.story p,.end p{animation:txt .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0s)}
+.story p{--o:.92}
+@media(prefers-reduced-motion:reduce){.story p,.end p{animation:none}}
+
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:50;display:none;place-items:center;background:rgba(4,2,6,.94);cursor:pointer;backdrop-filter:blur(8px);overflow:hidden}
+#lb.on{display:grid;animation:fade .35s}
+#lb img{max-width:90vw;max-height:88vh;object-fit:contain;box-shadow:0 0 80px rgba(227,192,122,.25);animation:zoom .45s cubic-bezier(.2,.7,.2,1);cursor:zoom-in;touch-action:none;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+#lb img.zoomed{cursor:zoom-out}
+.lbx{position:fixed;top:14px;right:18px;width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--gold);border-radius:50%;color:var(--gold);font-size:1.1rem;background:rgba(0,0,0,.5);transition:background .3s,color .3s}
+.lbx:hover{background:var(--gold);color:#1a1208}
+.lbhint{position:fixed;bottom:14px;left:0;right:0;text-align:center;font-family:var(--title);font-size:.65rem;letter-spacing:.25em;color:var(--gold);opacity:.6;pointer-events:none}
+@keyframes fade{from{opacity:0}}
+@keyframes zoom{from{transform:scale(.85);opacity:0}}
+/* pantallas muy bajas (móvil en horizontal): solo ahí la portada permite scroll */
+@media(max-height:620px){
+  .cover{overflow-y:auto}
+  .cover-img,.cover::before{position:fixed;animation:none}
+}
+@media(max-width:600px){
+  body{font-size:1.1rem}
+  #app{padding:20px 14px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .home{position:absolute;left:12px;top:12px}
+  .story{padding-top:46px}
+  .story p{font-size:1.1rem;text-align:left;hyphens:auto}
+  .cover h1{font-size:clamp(1.4rem,7.2vw,2.4rem);letter-spacing:.07em}
+  .cover .orn{letter-spacing:.4em;margin:.6rem 0}
+  .cover p{font-size:1.15rem;margin-bottom:1.5rem}
+  .cover p span+span{font-size:.75rem;letter-spacing:.1em}
+  .cover p span:nth-child(3){font-size:.95rem}
+  .cover-box{padding:26px 16px}
+  .btn{padding:.8em 1.3em;font-size:.75rem;letter-spacing:.14em}
+  .extras-btn{right:12px;bottom:12px}
+  .map-btn{bottom:60px}
+  .snd{top:12px;right:12px;width:38px;height:38px}
+  .gal .grid.map{grid-template-columns:repeat(3,1fr);gap:10px}
+  .mcard span{font-size:.5rem;letter-spacing:.06em;padding:16px 4px 6px}
+  .nav{gap:10px}
+}
+</style>
+</head>
+<body>
+<div id="bg"></div>
+<div id="dust"></div>
+<div id="app"></div>
+<button id="snd" class="snd idle" aria-label="Activar música" title="Música">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="w" d="M16 9a4 4 0 0 1 0 6"/><path class="w" d="M18.5 6.5a8 8 0 0 1 0 11"/><path class="x" d="M17 9l5 6M22 9l-5 6"/></svg>
+</button>
+<div id="lb"><span class="lbx">✕</span><img alt=""><div class="lbhint">CLIC EN LA IMAGEN PARA AMPLIAR · CLIC FUERA PARA CERRAR</div></div>
+
+<script>
+/* ============ CONFIGURACIÓN ============ */
+const FOLDER = "img/";
+const EXT = "png";               // ← cambia a jpg / webp si hace falta
+const COVER = "0 - Portada y Cierre";
+const MAIN = [
+"1 - Prehistoria","2 - Babilonia-Mesopotamia","3 - Egipto","4 - Grecia","5 - Roma Imperial","6 - Antiguedad Tardía",
+"7 - Edad de Oro Islámica","8 - Al Andalus","9 - Era Vikinga","10 - Japón Feudal","11 - Alta Edad Media Europea",
+"12 - Baja Edad Media","13 - Final de la Edad Media","14 - Renacimiento","15 - Era de los Descubrimientos","16 - Barroco",
+"17 - Ilustración","18 - Oeste Americano","19 - Revolucion Industrial","20 - Belle Época","21 - Años 20","22 - Años 30 Art Deco",
+"23 - Años 40","24 - Años 50","25 - Años 60","26 - Años 60","27 - Años 80","28 - Años 90","29 - Años 2000",
+"30 - Actualidad","31 - Futuro Cercano","32 - Futuro Lejano","33 - Lunar"
+];
+const EXTRAS = [
+"Extra 1 - Baja Edad Media (12)","Extra 2 - Renacimiento (14)","Extra 3 - Oeste (18)","Extra 4 - Revolucion Industrial (19)",
+"Extra 5 - Belle Epoca (20)","Extra 6 - Años 50 (24)","Extra 7 - Años 60 (25)","Extra 8 - Años 80 (27)","Extra 9 - Años 80 (27)",
+"Extra 10 - Años 90 (28)","Extra 11 - Años 90 (28)","Extra 12 - Años 2000 (29)","Extra 13 - Actualidad (30)"
+];
+const LOREM = [
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa.",
+"Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
+];
+/* Textos por época: lugar y año + texto (párrafos separados por línea en blanco) */
+const DATA = {
+1:{place:"Europa occidental, hacia el 12.000 a. C.",text:`Aprendí a encender el fuego solo para verte sonreír al calor de la hoguera. Cada mañana salíamos juntos a descubrir nuestro mundo y, cuando caía la noche, nos sentábamos bajo las estrellas mientras descansábamos después de recorrer bosques y valles. Te recogía flores cuando encontraba alguna bonita y juntos dejamos nuestras manos pintadas en las paredes de nuestra cueva, como si ya entonces quisiéramos dejar un pequeño recuerdo de nosotros para quienes vinieran después. No teníamos casi nada, pero teníamos nuestro refugio, nuestro fuego y nuestras noches juntos. Y recuerdo pensar que, si aquella era toda la vida que nos había tocado vivir, mientras estuvieras tú, ya tenía suficiente.`},
+2:{place:"Babilonia, Mesopotamia, hacia el 575 a. C.",text:`Vivimos junto al Éufrates, rodeados de enormes murallas, calles de ladrillo y puertas cubiertas de aquellos brillantes azulejos azules que parecían cambiar de color cuando les daba el sol. Por las mañanas recorríamos juntos los mercados, entre puestos de dátiles, panes, telas y especias, y siempre terminábamos comprando alguna cosa que realmente no necesitábamos porque a ti te hacía ilusión llevarla a casa. Por las tardes me gustaba esperarte cerca del río mientras el calor empezaba a desaparecer y las palmeras se movían con el viento.
+
+Aprendí a trabajar con mis manos, a cargar agua y a ganarme el pan como podía, mientras tú llenabas nuestra casa de pequeños detalles que hacían que aquel lugar se sintiera nuestro. Algunas noches caminábamos bajo las estrellas después de ver las luces de la ciudad reflejadas en el Éufrates, y hablábamos de cómo sería conocer todo lo que había más allá de Babilonia. Éramos solo dos personas más entre aquella enorme ciudad, pero cuando caminábamos juntos por sus calles, yo sentía que no necesitaba conocer ningún otro lugar del mundo.`},
+3:{place:"Egipto, junto al Nilo, hacia el 1300 a. C.",text:`Vivíamos cerca del Nilo, donde cada día comenzaba con el sol apareciendo sobre el agua y terminaba con el cielo teñido de naranja sobre los campos. Aprendí a reconocer las mejores horas para trabajar y a aprovechar cada crecida del río, mientras tú encontrabas siempre alguna excusa para que nos acercáramos al mercado y pudiéramos volver a casa con frutas, telas o alguna pequeña cosa que te hubiera llamado la atención. Cuando teníamos tiempo, caminábamos juntos por las orillas del Nilo y nos quedábamos mirando las barcas pasar.
+
+También recuerdo las tardes en las que nos sentábamos a la sombra después de trabajar, cuando el calor empezaba a bajar y por fin podíamos descansar. Algunas noches mirábamos las estrellas y hablábamos de los dioses, del río y de todo lo que habría más allá del desierto. Vivir allí me enseñó que no hacía falta tener una vida llena de lujos para ser feliz: nuestra casa, nuestras cosas sencillas y tenerte a mi lado eran suficientes para sentir que aquel pequeño rincón de Egipto era nuestro.`},
+4:{place:"Atenas, Grecia, hacia el 450 a. C.",text:`Vivíamos en una ciudad llena de columnas de mármol, plazas concurridas y calles donde siempre parecía estar ocurriendo algo. Por las mañanas salíamos juntos al mercado y después recorríamos las calles mientras el ruido de los artesanos y comerciantes llenaba la ciudad. A veces subíamos hasta la Acrópolis y nos quedábamos un rato contemplando Atenas desde lo alto, con el mar al fondo y las montañas rodeándolo todo.
+
+Recuerdo especialmente nuestras tardes junto al puerto del Pireo, viendo llegar barcos de lugares que apenas conocíamos. Tú siempre soñabas con subir a uno y descubrir qué había al otro lado del mar, y yo te decía que algún día lo haríamos. Mientras tanto, nos conformábamos con caminar juntos, hablar hasta que anochecía y volver a casa por las mismas calles que ya nos sabíamos de memoria. Entre filósofos, mercados, templos y barcos, aquella ciudad terminó convirtiéndose en nuestro pequeño mundo.`},
+5:{place:"Roma, Imperio romano, hacia el 120 d. C.",text:`Nuestra vida en Roma tenía algo de caótica y maravilloso. Vivíamos en una ciudad enorme, llena de termas, tabernas, carruajes y edificios que parecían no terminar nunca, y muchas veces nos escapábamos de aquel ruido para sentarnos juntos en algún rincón tranquilo. Recuerdo que me gustaba sorprenderte llevándote a las termas al terminar la jornada, donde por unas horas olvidábamos todas nuestras obligaciones y simplemente disfrutábamos de estar juntos.
+
+Con el tiempo descubrimos que nuestra parte favorita de Roma eran las pequeñas cosas que hacíamos solo nosotros. Comprábamos vino y pan para cenar en casa, nos reíamos de cualquier tontería y algunas noches salíamos a ver los espectáculos de la ciudad. Una vez te prometí que, mientras yo pudiera, nunca te faltaría un motivo para sonreír, y todavía recuerdo cómo me miraste después de decirlo. Roma podía ser inmensa y nosotros podíamos ser insignificantes dentro de ella, pero yo tenía algo que ningún emperador habría podido comprar: llegar a casa y encontrarte allí.`},
+6:{place:"Constantinopla, Imperio romano de Oriente, hacia el 550 d. C.",text:`Habíamos acabado viviendo en una ciudad que parecía hecha para impresionar a cualquiera que llegara a ella por primera vez. Las cúpulas doradas, los mosaicos y el movimiento constante del puerto formaban parte de nuestro día a día, pero mi recuerdo favorito no tiene nada que ver con los grandes edificios. Era cuando conseguíamos escaparnos de nuestras obligaciones y comprábamos algo de comer para sentarnos frente al Bósforo, viendo cómo los barcos entraban y salían de la ciudad.
+
+Una tarde te regalé una pequeña pieza de vidrio coloreado que había encontrado entre los artesanos. No era especialmente valiosa, pero tú la guardaste como si fuera un tesoro. Años después seguías teniéndola entre nuestras cosas, y cada vez que la veía recordaba aquella tarde. Quizá eso fue lo que más aprendí de nuestra vida allí: que las cosas que terminan significándolo todo para nosotros rara vez son las más valiosas, sino aquellas que llevan dentro un recuerdo de lo que nos amamos.`},
+7:{place:"Bagdad, califato abasí, hacia el 850 d. C.",text:`Bagdad nos recibió como una ciudad llena de vida, conocimiento y rincones que parecían esconder una historia detrás de cada puerta. Recuerdo nuestras tardes entre patios con fuentes, jardines y pequeños puestos de libros, donde tú te detenías cada vez que encontrabas algo que despertaba tu curiosidad. Yo terminaba esperándote con paciencia mientras hojeabas manuscritos, porque me encantaba verte tan concentrada en algo que te apasionaba.
+
+Con los meses, empezamos a guardar nuestros propios pequeños tesoros: alguna carta, una flor seca, una página que habíamos leído juntos o cualquier recuerdo de aquellos días. Una noche, mientras descansábamos en el patio de nuestra casa, te conté todo lo que me gustaría conocer algún día y tú me dijiste que no necesitabas conocer el mundo entero mientras pudiéramos seguir descubriéndolo juntos. Aquella frase se me quedó grabada. En una ciudad donde tantas personas dedicaban su vida a aprender cosas nuevas, yo sentía que mi descubrimiento favorito ya lo había hecho: haberte encontrado.`},
+8:{place:"Córdoba, Al-Ándalus, hacia el 950 d. C.",text:`Nuestra casa estaba en una calle tranquila de Córdoba, no muy lejos del río, y por las mañanas el aire llegaba cargado con el olor de los naranjos y de las especias de los puestos cercanos. Tú te habías acostumbrado a decorar nuestro pequeño patio con plantas y flores, y yo bromeaba diciendo que cada semana conseguías convertirlo en un jardín todavía más bonito. Por las noches encendíamos lámparas de aceite y nos quedábamos allí después de cenar, disfrutando de aquella calma mientras la ciudad seguía viva al otro lado de nuestras paredes.
+
+Hubo una primavera en la que conseguimos ahorrar lo suficiente para pasar unos días fuera de Córdoba. Recuerdo la ilusión que tenías preparando nuestras cosas y lo felices que fuimos simplemente por poder alejarnos de la rutina. A la vuelta, mientras cruzábamos de nuevo las puertas de la ciudad, pensé que había algo especial en tener un lugar al que regresar contigo. Podíamos viajar, descubrir lugares nuevos y cambiar de vida una y otra vez, pero mientras tú estuvieras conmigo, cualquier casa podía convertirse en nuestro hogar.`},
+9:{place:"Noruega, hacia el 1080 d. C.",text:`Vivíamos junto a un fiordo, en una pequeña casa de madera donde el frío se colaba por las rendijas durante los inviernos. Tú aprendiste a coser y reparar nuestra ropa para que pudiéramos soportar aquellos meses, mientras yo me encargaba de preparar la leña y de mantener el fuego encendido. Cuando regresaba después de pasar el día fuera, siempre había algo reconfortante esperándome en casa, y recuerdo que muchas veces lo mejor de volver no era el calor de la hoguera, sino encontrarte a ti esperándome.
+
+Hubo un verano en el que partimos en barco siguiendo la costa. El viento nos empujaba entre los fiordos y tú permanecías a mi lado mientras descubríamos lugares que ninguno de los dos había visto antes. Al regresar, guardamos una pequeña piedra de aquella travesía como recuerdo y la dejamos junto a nuestras cosas. Habíamos pasado meses imaginando tierras lejanas, pero después de aquel viaje entendí que lo que realmente hacía especial cualquier aventura no era el lugar al que llegábamos, sino tener a la persona que quería a mi lado cuando lo descubríamos.`},
+10:{place:"Japón, hacia el 1200 d. C.",text:`Nuestra vida transcurría entre bosques de bambú, pequeñas aldeas y caminos de tierra que atravesaban las montañas. Tú habías aprendido a preparar el té con una paciencia que yo nunca tuve, y muchas tardes me sentaba cerca de ti simplemente para acompañarte mientras lo preparabas. Había algo especial en aquellos momentos de silencio: no necesitábamos hablar para saber que estábamos bien.
+
+Durante una primavera especialmente bonita, los cerezos florecieron cerca de nuestra casa y pasábamos largos ratos bajo sus ramas. Un día te encontré intentando guardar algunos pétalos entre las páginas de un libro para conservarlos como recuerdo. Yo me reí y te dije que seguramente acabarían marchitándose, pero tú insististe en que precisamente por eso había que guardarlos. Con los años entendí lo que querías decir: aquellas flores no iban a durar para siempre, pero el recuerdo de nosotros bajo aquellos árboles sí podía hacerlo. Y cuando pienso en aquella época, eso es lo primero que recuerdo: tú, sentada a mi lado, mientras el viento llenaba el suelo de pétalos.`},
+11:{place:"Francia, hacia el 1250 d. C.",text:`Recuerdo aquella época como una vida dura, pero también como una de las etapas en las que más aprendí lo que significaba tenerte a mi lado. Los inviernos eran largos y muchas veces no sabíamos qué nos depararía el siguiente año. Yo trabajaba todo lo que podía para que nunca te faltara lo necesario, y tú encontrabas la manera de hacer que nuestra pequeña casa se sintiera cálida incluso cuando afuera todo parecía estar en nuestra contra.
+
+Hubo un invierno especialmente difícil en el que enfermé y pasé varios días sin fuerzas para levantarme. Tú te quedaste conmigo, cuidándome día y noche, aun sabiendo que podías enfermar tú también. Recuerdo despertarme una madrugada y verte dormida junto a mí, agotada después de haber pasado horas cuidándome. En aquel momento entendí que no te quería solamente por los días felices, sino también por la forma en que permanecías cuando las cosas se ponían difíciles.
+
+Cuando finalmente me recuperé, te abracé durante tanto tiempo que ninguno de los dos quiso ser el primero en separarse. No teníamos riquezas, ni sabíamos qué nos esperaba al día siguiente, pero aquella noche tuve una certeza que me acompañó durante toda nuestra vida: si alguna vez el mundo volvía a ponerse en nuestra contra, yo quería enfrentarlo contigo.`},
+12:{place:"Bolonia, Italia, hacia el 1375 d. C.",text:`Llegamos a Bolonia cuando la ciudad estaba creciendo entre talleres, comerciantes y enormes edificios de piedra. Tú te enamoraste de los colores de los tejidos que llenaban los talleres y yo acabé acostumbrándome a verte detenerte frente a cada escaparate, imaginando cómo quedarían aquellas telas en nuestra casa. Poco a poco conseguimos ahorrar para comprar una pequeña pieza de tela que tú habías elegido, y durante semanas la guardaste como si fuera algo extraordinario.
+
+Pero lo que más recuerdo de aquella época ocurrió una tarde en la que recibimos una noticia que podía cambiar completamente nuestra vida. Durante unas horas estuvimos asustados, sin saber qué iba a pasar ni si tendríamos que separarnos. Recuerdo mirarte y pensar que, después de todo lo que habíamos vivido, lo único que realmente me aterraba no era perder nuestra casa, nuestro dinero o nuestra seguridad; era despertarme al día siguiente y no tenerte conmigo.
+
+Al final las cosas salieron bien. Aquella noche volvimos a nuestra habitación, cerramos la puerta y nos quedamos abrazados en silencio. No necesitábamos decir nada. Después de haber sentido por unas horas lo que significaba poder perderte, tenerte otra vez entre mis brazos me pareció el mayor regalo que podía haber recibido.`},
+13:{place:"Europa occidental, hacia 1450 d. C.",text:`Nuestra vida transcurría entre pequeñas calles de piedra, plazas llenas de comerciantes y el sonido de las campanas marcando las horas. Habíamos aprendido a conocernos tanto que muchas veces bastaba una mirada para saber qué estaba pensando el otro. Me gustaba sorprenderte con pequeños regalos cuando podía permitírmelo: una cinta para el pelo, alguna fruta que sabía que te gustaba o cualquier cosa que me recordara a ti. No eran grandes tesoros, pero verte sonreír al recibirlos hacía que para mí valieran más que cualquier moneda.
+
+Con los años fuimos llenando nuestra casa de recuerdos de nuestra vida juntos. Había objetos que para cualquier otra persona no significaban nada, pero que para nosotros guardaban una historia entera. Una noche los fuimos colocando sobre la mesa y empezamos a recordar de dónde había salido cada uno, hasta terminar riéndonos de lo mucho que habíamos vivido sin darnos cuenta.
+
+Entonces te miré y pensé en algo que todavía recuerdo perfectamente: quizá la vida no se medía por los años que pasaban, sino por todas las pequeñas historias que conseguíamos guardar dentro de ellos. Y si algún día alguien me preguntaba qué había sido lo más bonito de mi vida, no habría sabido señalar un lugar concreto. Habría pensado en todos esos años contigo, en todas esas pequeñas cosas, y habría sabido que mi respuesta eras tú.`},
+14:{place:"Florencia, Italia, hacia el 1500 d. C.",text:`Vivíamos en una ciudad que parecía estar despertando al mismo tiempo que nosotros. Las calles estaban llenas de artistas, talleres y personas que hablaban de nuevas ideas, y tú tenías esa curiosidad que hacía que cualquier rincón pudiera convertirse en una aventura. A veces entrábamos en un taller solo para mirar y terminábamos pasando horas observando cómo alguien convertía una simple piedra, un trozo de madera o un lienzo en algo hermoso. Yo fingía entender de arte, pero la verdad es que muchas veces estaba más pendiente de mirarte a ti mientras lo contemplabas.
+
+Una tarde nos sentamos frente a una obra que todavía estaba sin terminar. El artista trabajaba en silencio, añadiendo pequeños detalles que apenas se distinguían desde lejos. Te quedaste mirándola durante un buen rato y dijiste que quizá las cosas más bonitas de la vida eran precisamente aquellas que necesitaban tiempo para hacerse. Me quedé pensando en aquello mientras te miraba, porque sentí que nosotros éramos un poco así también: una historia que se había ido construyendo poco a poco, con miles de momentos que por separado parecían pequeños, pero que juntos habían creado algo que ya no cambiaría por nada.
+
+Y si pudiera guardar un solo recuerdo de aquella época, no elegiría ningún cuadro, ningún edificio ni ninguna de las maravillas que vimos. Guardaría aquella tarde contigo, porque entendí que después de pasar una vida entera buscando belleza, yo ya tenía delante de mí la que más quería conservar.`},
+15:{place:"Lisboa, Portugal, hacia 1575.",text:`Vivíamos en una ciudad donde cada mañana podía aparecer un barco que regresaba de algún lugar del que apenas habíamos oído hablar. El puerto era nuestro sitio favorito: tú te quedabas mirando las naves durante horas y yo me reía porque siempre terminabas imaginando cómo sería subir a una de ellas y marcharnos juntos hasta el otro extremo del mundo. Un día, cansado de escucharte soñar con aquellas tierras, te dije que si de verdad querías conocerlas, yo iría contigo.
+
+Y así empezamos a imaginar nuestra propia aventura. Hablábamos de atravesar mares, conocer ciudades desconocidas y despertarnos cada mañana sin saber qué habría al otro lado del horizonte. Nunca llegamos a saber hasta dónde habríamos sido capaces de llegar, pero recuerdo perfectamente aquella sensación de tener toda una vida por delante y saber con quién quería vivirla.
+
+Porque lo que más me emocionaba de aquella época no eran los mapas ni las tierras que aparecían por primera vez ante nuestros ojos. Era pensar que, aunque el mundo fuera muchísimo más grande de lo que jamás habíamos imaginado, yo ya había encontrado el lugar al que siempre querría volver. Y ese lugar eras tú.`},
+16:{place:"Madrid, España, hacia 1650.",text:`Nuestra vida transcurría entre calles llenas de carruajes, iglesias, teatros y una ciudad que parecía querer convertir cada día en un espectáculo. Tú tenías una forma de hacer que incluso las cosas más sencillas parecieran extraordinarias, y muchas tardes conseguías convencerme para arreglarnos y salir sin ningún plan concreto, simplemente para disfrutar de la ciudad. Entrábamos en una plaza, escuchábamos música a lo lejos, nos sentábamos a observar a la gente y acabábamos inventándonos historias sobre desconocidos como si fueran personajes de una obra.
+
+Pero lo que más recuerdo de aquellos años eran nuestras noches. Después de cenar, cuando por fin desaparecía el ruido de las calles, nos quedábamos hablando durante horas. Hablábamos de lo que queríamos hacer, de los lugares que todavía nos quedaban por conocer y de cómo sería nuestra vida cuando fuéramos mayores. A veces nos daban las tantas sin darnos cuenta.
+
+Una de aquellas noches te quedaste dormida apoyada en mí mientras yo seguía despierto. Me quedé mirándote y pensé en lo extraño que era que, entre millones de personas y después de tantos siglos de historia, nuestras vidas hubieran terminado encontrándose. Y comprendí que no necesitaba una vida extraordinaria. Si podía llegar al final de mis días y seguir teniendo aquellas noches contigo, habría vivido exactamente la vida que quería.`},
+17:{place:"París, Francia, hacia 1770.",text:`Recuerdo aquellos años por nuestras conversaciones interminables. Tú podías empezar preguntándome algo completamente sencillo y, antes de darnos cuenta, llevábamos horas hablando de por qué las personas somos como somos, de la libertad, de la felicidad y de todo aquello que todavía no comprendíamos. Me encantaba escucharte incluso cuando no estaba de acuerdo contigo, porque había algo en la forma en que defendías tus ideas que conseguía que me enamorara un poco más de ti cada vez.
+
+Una tarde salimos de una de aquellas reuniones y comenzó a llover. No llevábamos nada para protegernos y terminamos refugiándonos bajo el pequeño tejado de una librería. Estábamos empapados, muertos de frío y riéndonos de nosotros mismos. Tú me miraste y dijiste que seguramente éramos las dos personas más poco preparadas para sobrevivir a una tormenta que habías conocido. Yo te contesté que mientras estuvieras tú, hasta las tormentas me parecían bonitas.
+
+Años después todavía recuerdo aquella lluvia. No porque fuera una tarde extraordinaria, sino precisamente porque no lo fue. No hubo grandes acontecimientos ni nada digno de aparecer en los libros de historia. Solo estábamos tú y yo, mojados, riéndonos en una calle de París. Y quizá eso fue lo más hermoso de nuestra vida: que entre todos los grandes acontecimientos del mundo, mis recuerdos favoritos siempre terminaban siendo aquellos en los que simplemente estaba contigo.`},
+18:{place:"Territorio del Oeste, Estados Unidos, hacia 1875.",text:`Aquella fue una vida de polvo, caminos interminables y noches en las que el silencio parecía no tener final. Recuerdo especialmente nuestros viajes a caballo: tú delante y yo detrás, atravesando paisajes que parecían no terminar nunca. Había días en los que apenas hablábamos; simplemente avanzábamos juntos mientras el sol cambiaba de posición sobre nuestras cabezas. Y, curiosamente, aquellos silencios contigo nunca fueron incómodos. Eran de esos silencios que solo existen cuando dos personas se conocen tanto que ya no necesitan llenarlo todo con palabras.
+
+Una tarde llegamos a un pequeño pueblo después de pasar horas en el camino. Estábamos cansados, cubiertos de polvo y con ganas de quitarnos las botas, pero antes de entrar en la posada te detuviste en mitad de la calle y empezaste a reírte al verme la cara. Yo te pregunté qué te hacía tanta gracia y me dijiste que parecía que llevaba semanas viviendo en aquel desierto. Terminamos riéndonos los dos hasta que nos dolió el estómago.
+
+A veces pienso que esa es la imagen que más cariño me despierta de aquella época: tú riéndote de mí en mitad de un pueblo perdido. No necesitábamos grandes aventuras para ser felices. Bastaba con que, después de un día entero atravesando un mundo enorme y desconocido, al final del camino todavía estuvieras tú. Y qué extraño y bonito fue descubrir que, en un lugar donde todo parecía estar tan lejos, yo nunca me sentí perdido cuando iba contigo.`},
+19:{place:"Londres, Inglaterra, hacia 1850.",text:`Nuestra vida en Londres tenía el sonido constante de las máquinas, los carruajes y las fábricas que llenaban el aire de humo. Los días eran largos y muchas veces llegábamos a casa agotados, pero había algo que me hacía olvidar el cansancio en cuanto cruzaba la puerta: encontrarte allí. A veces no teníamos fuerzas ni para hablar; simplemente nos sentábamos juntos después de cenar y apoyábamos la cabeza el uno junto al otro mientras afuera la ciudad seguía funcionando.
+
+Recuerdo especialmente una mañana en la que salimos temprano y empezó a nevar. Las chimeneas seguían echando humo y las calles estaban cubiertas de una fina capa blanca que hacía que, por unos minutos, Londres pareciera una ciudad completamente distinta. Te cogí de la mano para cruzar la calle y seguimos andando sin ninguna prisa, aunque llegáramos tarde a donde teníamos que ir.
+
+Al mirarte aquella mañana pensé en lo curioso que era que una ciudad entera pudiera estar cambiando tan deprisa y, sin embargo, hubiera algo que permaneciera exactamente igual: la manera en que me sentía cuando te tenía cerca. Podían aparecer máquinas nuevas, crecer las fábricas y transformarse las calles, pero yo seguía encontrando en tu mano el mismo lugar donde quería estar. Y quizá esa fue nuestra pequeña revolución: que mientras todo el mundo parecía correr hacia adelante, nosotros siempre supimos detenernos un momento para querernos.`},
+20:{place:"París, Francia, hacia 1902.",text:`París parecía haber decidido que la vida debía disfrutarse con calma. Nos arreglábamos para salir incluso cuando no teníamos ningún motivo especial, porque a ti te encantaba sentir que aquella noche podía convertirse en algo bonito simplemente por estar juntos. Íbamos a cafés, escuchábamos música en los bulevares y algunas veces terminábamos entrando en algún teatro sin haberlo planeado. Recuerdo que me gustaba observarte cuando las luces se apagaban y el escenario comenzaba a iluminarse, porque durante unos segundos parecías olvidarte de todo lo demás.
+
+Una noche, después de salir del teatro, caminamos sin rumbo por las calles iluminadas. Había parejas por todas partes, carruajes pasando y música que llegaba desde los locales. En un momento te detuviste, me miraste y me pediste que bailara contigo allí mismo, en mitad de la calle. No había música para nosotros, así que simplemente empezamos a movernos siguiendo una melodía que todavía sonaba a lo lejos.
+
+Y mientras bailaba contigo bajo las luces de París pensé que quizá el amor no siempre llega acompañado de grandes declaraciones. A veces simplemente aparece en una noche cualquiera, cuando la persona que amas te tiende la mano y consigue que durante unos minutos todo lo demás deje de importar. Si pudiera volver a una sola noche de aquella época, volvería a aquella. No cambiaría absolutamente nada.`},
+21:{place:"Milán, Italia, hacia 1922",text:`Aquellos años tenían una energía que parecía contagiarse a todo el mundo. La música salía de los locales hasta altas horas de la noche, las calles estaban llenas de gente y nosotros parecíamos tener siempre una razón para salir de casa. Recuerdo que una noche entramos en un pequeño club donde tocaba una banda de jazz y terminamos bailando durante horas. Tú te reías cada vez que intentaba seguir tus pasos y yo, aunque no tenía ni idea de bailar, no quería que aquella canción terminara.
+
+Cuando salimos, ya estaba amaneciendo. París estaba casi vacío y las primeras luces empezaban a aparecer sobre los edificios. Nos sentamos en una terraza mientras la ciudad despertaba y pedimos algo caliente para desayunar. Estábamos agotados, despeinados y probablemente parecíamos dos personas que no habían dormido en toda la noche, pero tú apoyaste la cabeza sobre mi hombro y me dijiste que no cambiarías aquella noche por nada.
+
+Yo tampoco.
+
+Porque con el tiempo he olvidado muchas de las canciones que sonaban aquella noche, pero nunca olvidé cómo se sentía tenerte entre mis brazos mientras bailábamos. Y quizá esa sea una de las cosas más bonitas del amor: que el tiempo puede llevarse una noche entera, una canción, una ciudad e incluso nuestra juventud, pero hay momentos que se quedan dentro de nosotros para siempre.`},
+22:{place:"París, Francia, hacia 1933",text:`Aquellos años tenían una elegancia extraña, como si incluso los días normales merecieran vestirse de gala. Recuerdo nuestras tardes entrando en cafés llenos de humo y conversaciones, mientras afuera pasaban coches antiguos y la ciudad seguía su ritmo. Tú siempre encontrabas la mesa más tranquila, aquella desde la que podíamos observar a todo el mundo sin que nadie reparara demasiado en nosotros.
+
+Una tarde salimos después de tomar café y comenzamos a caminar bajo una lluvia fina. No teníamos prisa. Tú levantaste el cuello del abrigo para protegerte y yo intenté cubrirte con el mío, aunque terminé mojándome bastante más que tú. Nos reímos mientras corríamos hasta refugiarnos bajo el toldo de un pequeño local.
+
+Cuando la lluvia empezó a aflojar, nos quedamos allí unos minutos, simplemente abrazados, viendo cómo las gotas resbalaban por los cristales. París seguía moviéndose delante de nosotros, pero por un instante pareció que el mundo entero había bajado el volumen.
+
+Y quizá por eso, cuando pienso en aquellos años, no recuerdo las grandes avenidas ni los edificios elegantes. Recuerdo aquel pequeño refugio, tu risa todavía entrecortada y la sensación de tenerte tan cerca que no necesitaba nada más. Hay momentos que no parecen importantes cuando ocurren, pero con los años se convierten en algunos de los más queridos de toda una vida.`},
+23:{place:"Marsella, Francia, hacia 1944.",text:`Aquellos años hicieron que aprendiéramos a valorar cosas que antes parecían insignificantes. Una comida tranquila, una tarde juntos, escuchar tu voz al llegar a casa. La ciudad había cambiado y nosotros también, pero intentábamos conservar pequeñas costumbres que nos recordaran quiénes éramos antes de que todo se volviera tan difícil.
+
+Recuerdo especialmente las noches en las que apagábamos las luces y nos sentábamos juntos cerca de la ventana. No necesitábamos hablar demasiado. A veces simplemente apoyabas la cabeza sobre mi hombro y permanecíamos así, escuchando el silencio de la calle. Otras veces conseguíamos algo de música y bailábamos muy despacio en el salón, casi sin espacio para movernos, riéndonos cuando alguno pisaba al otro.
+
+Una de esas noches te miré mientras bailábamos y pensé en lo extraño que era que, en medio de una época tan oscura, todavía pudiéramos encontrar momentos de felicidad tan pura. No porque hubiéramos olvidado lo que ocurría fuera, sino porque durante aquellos minutos éramos simplemente nosotros.
+
+Y eso es lo que más recuerdo de los años 40: que aprendí que amar a alguien no significa que el mundo tenga que ser perfecto. Significa encontrar un poco de paz en medio de todo lo que no puedes controlar. Y cuando te abrazaba al terminar aquellas pequeñas noches nuestras, sentía que, mientras pudiéramos seguir encontrándonos el uno en el otro, todavía quedaba algo hermoso que nadie podía quitarnos.`},
+24:{place:"California, Estados Unidos, hacia 1955.",text:`Aquella época tenía una alegría distinta. Las carreteras se llenaban de coches brillantes, los diners tenían las luces encendidas hasta tarde y parecía que todo el mundo encontraba cualquier excusa para salir de casa. Nosotros nos acostumbramos a hacer planes sencillos: coger el coche sin demasiadas vueltas, parar donde nos apeteciera y dejar que la tarde decidiera por nosotros.
+
+Una noche terminamos en un pequeño diner de carretera. Nos sentamos en una mesa junto a la ventana y compartimos un batido mientras sonaba música en la jukebox. Tú no parabas de mover el pie siguiendo el ritmo y yo me reía porque intentabas disimularlo cada vez que te miraba.
+
+Al salir, había un autocine al otro lado de la carretera. No teníamos intención de quedarnos, pero acabamos aparcando y pasando allí varias horas. La película avanzaba en la pantalla mientras nosotros apenas le prestábamos atención. En algún momento apoyaste la cabeza sobre mi hombro y nos quedamos así, escuchando la película de fondo y mirando las estrellas a través del parabrisas.
+
+No fue una noche extraordinaria para nadie más. No apareció en ningún periódico ni cambió la historia. Pero para mí se convirtió en una de esas noches que uno desearía poder volver a vivir exactamente igual: el coche, la música, las luces del autocine y tú apoyada junto a mí. Éramos jóvenes, estábamos juntos y, por unas horas, parecía que el mundo entero podía esperar.`},
+25:{place:"Liverpool, Inglaterra, hacia 1964.",text:`Liverpool parecía haber encontrado una nueva forma de respirar. La música salía de los pubs, las tiendas tenían discos en los escaparates y por las calles había una energía que hacía que todo pareciera estar empezando de nuevo. Nosotros nos dejamos llevar por aquella ciudad sin intentar entenderla demasiado.
+
+Recuerdo el día que fuimos al Cavern Club. Bajamos las escaleras entre una multitud de jóvenes y terminamos apretados entre desconocidos, riéndonos cada vez que alguien nos empujaba sin querer. Cuando empezó a tocar la banda, tú me agarraste de la mano y empezaste a bailar sin importarte quién estuviera mirando. Yo intenté seguirte y acabé haciendo el ridículo, pero te reíste tanto que terminé bailando todavía peor solo para verte disfrutar.
+
+Al salir, Liverpool estaba llena de gente. Había chicos con guitarras, chicas con vestidos de colores y grupos hablando de música en cada esquina. Caminamos por Mathew Street mientras tú me contabas qué canción había sido tu favorita y yo fingía estar de acuerdo aunque sabía perfectamente que no tenía ni idea de música.
+
+Aquella época me enseñó algo que todavía recuerdo: que el amor también puede ser divertido. No siempre necesita silencio, promesas o momentos perfectos. A veces es bailar mal delante de cientos de personas, reírse hasta quedarse sin aire y mirar a la persona que tienes al lado pensando que no cambiarías ese instante por nada. Y nosotros tuvimos muchos días así: jóvenes, enamorados y completamente felices de estar allí juntos.`},
+26:{place:"Costa Azul, Francia, hacia 1975.",text:`Habíamos alquilado un pequeño coche y llevábamos varios días recorriendo la costa de Niza sin preocuparnos demasiado por dónde terminaríamos cada tarde. Las ventanas iban siempre abiertas, el aire del Mediterráneo entraba cargado de sal y en la radio sonaban canciones que acabábamos cantando aunque ninguno se supiera bien la letra.
+
+Una mañana llegamos a un pequeño pueblo costero y encontramos un mercadillo instalado junto al puerto. Tú te empeñaste en probarlo todo: quesos, fruta, dulces, cualquier cosa que alguien nos ofreciera. Yo intentaba seguirte mientras cargaba con las bolsas y tú te reías cada vez que protestaba porque ya no me cabía nada más en las manos.
+
+Después compramos pan y fruta y nos sentamos en el capó del coche, frente al mar. No había nada especial alrededor: barcos pequeños, pescadores trabajando y algunas familias pasando el día. Tú partiste el pan por la mitad y me diste el trozo más grande sin decir absolutamente nada.
+
+Me acuerdo de aquel gesto más que de cualquier paisaje que vimos durante aquel viaje. Porque con los años descubrí que el amor también vive ahí: en conocer las pequeñas costumbres de alguien, en compartir lo que tienes sin pensarlo y en sentirte completamente en casa incluso estando a cientos de kilómetros de donde empezaste.
+
+Y mientras el sol caía sobre aquella costa francesa, con las manos todavía llenas de comida y arena, pensé que quizá no hacía falta buscar momentos extraordinarios. A veces la felicidad tenía exactamente esa forma: tú a mi lado, un día cualquiera y todo el Mediterráneo delante de nosotros.`},
+27:{place:"Tokio, Japón, hacia 1987.",text:`Tokio parecía moverse más deprisa que cualquier ciudad que hubiéramos conocido. Las calles estaban llenas de luces, anuncios, tiendas de electrónica y gente entrando y saliendo de los trenes. Nosotros disfrutábamos perdiéndonos entre aquella multitud, entrando en cualquier tienda que llamara nuestra atención y descubriendo cosas que parecían sacadas de una película de ciencia ficción.
+
+Un sábado encontramos un salón recreativo enorme y terminamos pasando allí media tarde. Tú te empeñaste en ganarme a uno de aquellos juegos de carreras y yo acepté demasiado confiado. Perdí la primera partida, la segunda y también la tercera. Tú celebrabas cada victoria como si acabaras de ganar un campeonato mundial y yo intentaba convencerte de que simplemente había tenido mala suerte.
+
+Después salimos a una calle llena de máquinas expendedoras y pequeños restaurantes. Compramos algo para comer y seguimos caminando mientras discutíamos, entre risas, quién había hecho trampas en aquella partida. En un escaparate vimos una televisión enorme reproduciendo imágenes de la ciudad y nos quedamos unos segundos mirándola, fascinados por aquella mezcla de tecnología, luces y movimiento.
+
+Aquella época fue especial porque todo parecía nuevo. Y me gusta recordar que, mientras el mundo cambiaba a nuestro alrededor a una velocidad increíble, nosotros seguíamos encontrando la manera de divertirnos con las cosas más tontas. No necesitábamos una gran aventura: nos bastaba una tarde en Tokio, un juego que tú insistías en ganar y nuestras risas caminando entre miles de personas.`},
+28:{place:"Berlín, Alemania, hacia 1994.",text:`Berlín tenía una energía difícil de explicar. Había edificios todavía marcados por el pasado, calles que parecían estar cambiando cada mes y una mezcla de personas, estilos y formas de vivir que hacía que cada barrio pareciera pertenecer a una ciudad diferente. A nosotros nos encantaba recorrerla en bicicleta, sin mapa y sin saber muy bien dónde acabaríamos.
+
+Una mañana cruzamos en bicicleta una parte de la ciudad y terminamos en un mercadillo improvisado. Pasamos horas mirando discos, ropa, cámaras antiguas y todo tipo de cosas que probablemente no necesitábamos. Tú encontraste una chaqueta que te encantó y te la pusiste inmediatamente, aunque seguías llevando la etiqueta colgando porque te habías olvidado de quitarla. Caminaste así durante varios minutos hasta que un desconocido te avisó y los dos terminamos riéndonos.
+
+Después compramos unas salchichas en un puesto callejero y nos sentamos en un banco mientras veíamos pasar a la gente. Hablábamos de cualquier tontería, comentábamos cómo vestía cada persona que pasaba y nos inventábamos historias absurdas sobre desconocidos. No había nada extraordinario sucediendo a nuestro alrededor, pero recuerdo perfectamente aquella sensación de estar disfrutando de la vida sin necesitar que ocurriera nada más.
+
+Berlín nos enseñó a querer también lo imperfecto: las paredes llenas de grafitis, los edificios que todavía contaban historias y las calles que parecían estar reinventándose delante de nosotros. Y entre todo aquel cambio, nosotros simplemente seguíamos siendo nosotros, riéndonos por una etiqueta que se te había olvidado quitar y caminando juntos por una ciudad que acababa de empezar una nueva etapa.`},
+29:{place:"Madrid, España, hacia 2004.",text:`Madrid estaba llena de vida. Los móviles empezaban a estar en todas partes, los cibercafés seguían llenos de gente y nosotros todavía teníamos la costumbre de quedar sin necesidad de escribirnos cada cinco minutos para saber dónde estaba el otro. Bastaba con decirnos una hora y un lugar, y allí aparecíamos.
+
+Recuerdo una tarde en la que nos encontramos en el centro y decidimos entrar en una tienda de discos. Pasamos muchísimo más tiempo del que pensábamos allí dentro, escuchando canciones con los auriculares de muestra y discutiendo sobre cuál nos llevaríamos a casa. Al final salimos con un disco que probablemente ninguno de los dos necesitaba, pero que acabamos escuchando tantas veces que terminamos asociándolo para siempre con aquellos años.
+
+Después nos fuimos a tomar algo y acabamos jugando a una máquina recreativa en un salón pequeño. Tú te empeñaste en demostrarme que eras mejor que yo y, para mi desgracia, lo conseguiste. Intenté pedir la revancha varias veces hasta que terminaste riéndote de mí y diciéndome que ya era suficiente humillación por un día.
+
+Cuando pienso en Madrid en los 2000, recuerdo sobre todo esa sensación de estar empezando a ser adultos sin haber dejado todavía atrás nuestra forma de divertirnos como niños. Teníamos nuestras responsabilidades, nuestros problemas y días que no salían como esperábamos, pero también teníamos esas tardes sencillas en las que cualquier plan podía acabar convirtiéndose en una historia que años después seguiríamos contando entre risas.
+
+Y quizá eso es lo que más quiero recordar de nosotros en aquella época: no necesitábamos que ocurriera nada extraordinario para sentir que estábamos viviendo algo especial. Nos bastaba con encontrarnos, inventarnos un plan y pasar el día juntos.`},
+30:{place:"Venecia, Italia, actualidad.",text:`Ahora estamos aquí, en Venecia, caminando juntos entre canales, puentes y calles que parecen esconder una historia detrás de cada esquina. Ya no somos aquellos dos que recorrían otras épocas sin saber qué les esperaba al día siguiente. Ahora conocemos mucho más del mundo, tenemos nuestras propias historias y, aun así, seguimos teniendo esa misma manera de mirarnos cuando descubrimos un lugar nuevo.
+
+Esta vez no necesitamos imaginar cómo será nuestra vida ni preguntarnos qué habrá más adelante. Estamos viviendo el momento. Nos perdemos entre las calles estrechas, nos reímos cuando tomamos el camino equivocado y terminamos apareciendo frente a un canal que no estaba en nuestros planes. Paramos a comer algo, seguimos caminando sin prisa y hacemos fotografías porque sabemos que queremos recordar exactamente cómo se siente estar aquí juntos.
+
+En algún momento nos sentamos frente al agua y simplemente nos quedamos observando Venecia. Los edificios, las barcas, el movimiento de la ciudad... todo sigue pasando alrededor mientras nosotros tenemos ese pequeño instante para nosotros.
+
+Y quizá eso es lo que hace diferente esta etapa de todas las anteriores: ya no estamos imaginando una vida juntos. Estamos dentro de ella.
+
+Después de haber recorrido tantos lugares y tantas épocas en nuestra historia, seguimos encontrándonos el uno al lado del otro. Y mientras caminamos por Venecia, entre puentes y canales, pienso que si alguien me preguntara dónde quiero estar ahora mismo, no tendría que pensarlo.
+
+Aquí. Contigo.`},
+31:{place:"Génova, Italia, año 2100.",text:`Génova se ha convertido en una ciudad que parece adelantarse a su tiempo. Las calles conservan parte de su arquitectura tradicional, pero entre ellas se levantan edificios de cristal, estructuras inteligentes y enormes pasarelas que conectan distintos niveles de la ciudad. Los antiguos funiculares y ascensores que suben por las colinas siguen recorriendo sus rutas, aunque ahora se desplazan en silencio y sin conductor, mientras vehículos autónomos circulan por las avenidas.
+
+Nosotros caminamos entre todo aquel movimiento, sorprendidos todavía por algunas de las cosas que vemos. Los escaparates ya no tienen simples cristales: muestran imágenes tridimensionales que cambian cuando alguien se acerca. Tú te detienes delante de uno y empiezas a modificarlo con las manos, fascinada, hasta que terminas convirtiendo toda la fachada en algo completamente absurdo y los dos nos echamos a reír.
+
+Seguimos avanzando por una plaza rodeada de edificios futuristas. Drones cruzan entre las torres, las pantallas proyectan información sobre las fachadas y pequeñas luces recorren el suelo indicando las rutas peatonales. Todo resulta extraño y familiar al mismo tiempo.
+
+Y lo curioso es que, en medio de una ciudad que ha cambiado tanto, nosotros seguimos haciendo las mismas cosas de siempre: caminar juntos, reírnos de cualquier tontería y detenernos cada vez que encontramos algo que queremos mirar.
+
+Después de haber recorrido tantas épocas, llegar hasta el año 2100 tiene algo especial. Hemos visto cambiar ciudades, costumbres, formas de vivir y hasta la manera en que las personas se relacionan con el mundo.
+
+Pero nosotros seguimos aquí.
+
+Juntos, caminando por una Génova que alguna vez habría parecido imposible, descubriendo el futuro como hemos descubierto todo lo demás: uno al lado del otro.`},
+32:{place:"Ciudad interestelar Lumen, órbita de Próxima Centauri, año 2233.",text:`Ya no estamos en la Tierra.
+
+La ciudad se extiende alrededor de una gigantesca estación espacial, formando varios niveles de jardines, avenidas y edificios suspendidos en el vacío. A través de los enormes ventanales podemos ver Próxima Centauri iluminando el horizonte y, mucho más lejos, el cielo lleno de estrellas que durante siglos solo pudimos observar desde nuestro planeta.
+
+Caminamos juntos por una de las avenidas principales mientras a nuestro alrededor pasan personas de cientos de mundos diferentes. Hay vehículos que flotan sin tocar el suelo, trenes que atraviesan la ciudad a velocidades imposibles y enormes naves entrando y saliendo de los puertos orbitales. En una pantalla aparece el nombre de un planeta al que acaba de llegar una expedición y nos quedamos unos segundos mirando, sorprendidos de que aquello que durante nuestra infancia parecía ciencia ficción ahora forme parte de nuestra vida cotidiana.
+
+Entramos en un mirador situado en el extremo de la ciudad. Delante de nosotros no hay calles, montañas ni océanos. Solo el espacio.
+
+Nos quedamos allí juntos, contemplando una estrella que está a más de cuatro años luz de nuestro antiguo hogar.
+
+Y pienso en todo lo que hemos recorrido para llegar hasta aquí. Desde aquellos primeros pasos de nuestra historia hasta una ciudad construida entre las estrellas, hemos atravesado siglos enteros, cambiado de ciudades, conocido otros mundos y visto transformarse la humanidad delante de nuestros ojos.
+
+Y, sin embargo, hay algo que sigue siendo exactamente igual.
+
+Cuando te miro, no siento que esté en el futuro.
+
+Siento que estoy en casa.
+
+Quizá después de viajar por toda la historia, atravesar continentes y terminar llegando hasta las estrellas, ese sea el verdadero final de nuestro viaje: descubrir que, incluso a años luz de la Tierra, el lugar donde quiero estar sigue siendo a tu lado.`},
+33:{place:"Luna, año 2700.",text:`Han pasado siglos desde que comenzamos aquel viaje y ahora estamos aquí, en una colonia construida sobre la superficie lunar. A nuestro alrededor se levantan enormes estructuras transparentes que protegen ciudades enteras del vacío, conectadas por túneles luminosos y plataformas suspendidas sobre el terreno gris. Muy por encima de nosotros, las naves atraviesan el cielo sin hacer ruido, llevando materiales y personas entre las distintas colonias del Sistema Solar.
+
+A lo lejos, un planeta gigantesco ocupa buena parte del horizonte. La Tierra sigue siendo nuestro origen, pero desde aquí parece diferente: pequeña, lejana y casi imposible de imaginar como el lugar donde comenzó nuestra historia.
+
+La colonia todavía está creciendo. Vemos enormes máquinas construyendo nuevos módulos mientras grupos de trabajadores y robots levantan estructuras que algún día formarán nuevos barrios. Hay jardines bajo cúpulas, sistemas capaces de fabricar agua y alimentos y edificios que parecen pertenecer a un mundo completamente distinto al que conocimos siglos atrás.
+
+Nos detenemos frente al enorme mirador de la colonia. Delante de nosotros se extiende el paisaje lunar y, detrás, aquel planeta suspendido en la oscuridad.
+
+Nos miramos.
+
+Después de todo este viaje, después de recorrer tantas épocas, ciudades y mundos, hemos llegado hasta un lugar que todavía no está terminado. No estamos contemplando el futuro de otras personas.
+
+Estamos ayudando a construirlo.
+
+Y quizá eso sea lo más bonito de llegar hasta aquí. No importa cuánto haya cambiado el mundo ni hasta dónde haya conseguido llegar la humanidad. Nosotros seguimos encontrando un lugar donde empezar algo juntos.
+
+Esta vez no estamos descubriendo una ciudad.
+
+Estamos construyendo nuestro hogar.`}
+};
+const TITLE_FIX = {6:"Antigüedad Tardía",19:"Revolución Industrial",26:"Años 70",33:"Colonia Lunar"};
+const INTRO = "Desde el principio de la historia hasta el último rincón del futuro.\nMil vidas, mil épocas. Nosotros. Siempre.\nTú y yo.";
+const OUTRO = `Hemos viajado por miles de años.
+
+Hemos vivido en ciudades que ya no existen, hemos visto nacer otras nuevas, hemos cruzado épocas, continentes y, finalmente, hemos llegado hasta las estrellas.
+
+Pero este álbum nunca ha tratado realmente sobre la historia.
+
+Ha tratado sobre nosotros.
+
+Porque, aunque cambien los lugares, los siglos, las ciudades e incluso los mundos, hay algo que permanece.
+
+Tú y yo.
+
+Y si algún día volvemos a mirar estas páginas cuando hayan pasado muchos años, espero que recordemos que, entre todas las vidas que podríamos haber vivido, en todas las épocas que podríamos haber conocido y en todos los lugares donde podríamos haber terminado...
+
+siempre volvería a elegir vivirlas contigo.`;
+/* ======================================= */
+
+const src = n => FOLDER + encodeURIComponent(n) + "." + EXT;
+const title = n => n.replace(/^(Extra )?\d+ - /, "").replace(/ \(\d+\)$/, "");
+const $ = s => document.querySelector(s);
+const app = $("#app"), bg = $("#bg"), lb = $("#lb");
+const TOTAL = MAIN.length;
+
+/* ============ MÚSICA DE FONDO ============ */
+const MUSIC = "audio/musica.mp3";     // ← nombre/ruta de tu archivo
+const MUSIC_CREDIT = "";              // ← opcional: "Canción – Autor" (se muestra en la página final)
+const MUSIC_VOL = 0.35;               // volumen (0 a 1)
+const snd = $("#snd");
+const bgm = new Audio(); bgm.loop = true; bgm.volume = 0; bgm.preload = "none"; bgm.src = encodeURI(MUSIC);
+let musicWanted = true, started = false, fadeT = null;
+try{ if(localStorage.getItem("musicOff")==="1") musicWanted = false; }catch(_){}
+function fade(to,ms,done){
+  clearInterval(fadeT); const from=bgm.volume, t0=performance.now();
+  fadeT=setInterval(()=>{ const k=Math.min(1,(performance.now()-t0)/ms); bgm.volume=from+(to-from)*k; if(k>=1){ clearInterval(fadeT); if(done) done(); } },50);
+}
+function sndUI(){ snd.classList.toggle("off",!musicWanted); snd.classList.toggle("idle",musicWanted&&!started);
+  snd.setAttribute("aria-label",musicWanted?"Silenciar música":"Activar música"); }
+function playMusic(){ bgm.play().then(()=>{ started=true; fade(MUSIC_VOL,3000); sndUI(); }).catch(()=>{}); }
+function stopMusic(){ fade(0,600,()=>{ bgm.pause(); sndUI(); }); }
+function firstTouch(e){
+  if(e.target.closest && e.target.closest("#snd")) return;      // el botón de música lo gestiona él solo
+  document.removeEventListener("click",firstTouch); document.removeEventListener("touchend",firstTouch);
+  if(musicWanted) playMusic();                                   // arranca con el primer toque/clic de la persona
+}
+document.addEventListener("click",firstTouch); document.addEventListener("touchend",firstTouch);
+snd.addEventListener("click",e=>{
+  e.stopPropagation();
+  document.removeEventListener("click",firstTouch); document.removeEventListener("touchend",firstTouch);
+  if(musicWanted){ musicWanted=false; try{localStorage.setItem("musicOff","1")}catch(_){}; stopMusic(); sndUI(); }
+  else { musicWanted=true; try{localStorage.removeItem("musicOff")}catch(_){}; sndUI(); playMusic(); }
+});
+document.addEventListener("visibilitychange",()=>{
+  if(document.hidden){ if(!bgm.paused) bgm.pause(); }
+  else if(musicWanted && started) bgm.play().catch(()=>{});
+});
+bgm.addEventListener("error",()=>{ snd.style.display="none"; });  // si no encuentra el archivo, oculta el botón
+sndUI();
+
+/* partículas */
+(()=>{const d=$("#dust");for(let i=0;i<28;i++){const p=document.createElement("i");
+p.style.left=Math.random()*100+"%";p.style.animationDuration=(10+Math.random()*16)+"s";
+p.style.animationDelay=(-Math.random()*20)+"s";const s=1+Math.random()*3;p.style.width=p.style.height=s+"px";d.appendChild(p)}})();
+
+function setBg(name){ bg.style.backgroundImage = name ? `url("${src(name)}")` : "none"; }
+
+/* rutas */
+function render(){
+  const h = location.hash.replace(/^#\/?/,"");
+  window.scrollTo(0,0); g0=null;
+  let html="";
+  if(h==="extras") html = galleryView();
+  else if(h==="mapa") html = mapView();
+  else if(h==="fin") html = endView();
+  else if(/^\d+$/.test(h) && +h>=1 && +h<=TOTAL) html = storyView(+h);
+  else html = coverView();
+  app.innerHTML = html;
+  const first = app.firstElementChild; if(first) first.classList.add("enter");
+  bindTilt();
+  [...MAIN, ...EXTRAS].slice(0,0);
+  // precarga vecinas
+  if(/^\d+$/.test(h)){ [+h-1,+h+1].forEach(i=>{ if(MAIN[i-1]) new Image().src = src(MAIN[i-1]); }); }
+}
+
+function coverView(){
+  setBg(null);
+  return `<section class="cover">
+    <div class="cover-img" style="background-image:url('${src(COVER)}')"></div>
+    <div class="cover-box">
+    <h1>Juntos a través<br>de la historia</h1>
+    <div class="orn">✦ ✦ ✦</div>
+    <p>${INTRO.split("\n").map(l=>`<span>${l}</span>`).join("")}</p>
+    <a class="btn" href="#/1">Comenzar el viaje →</a>
+    </div>
+    <a class="btn extras-btn map-btn" href="#/mapa">Mapa del viaje</a>
+    <a class="btn extras-btn" href="#/extras">Extras</a>
+  </section>`;
+}
+
+function storyView(n){
+  const name = MAIN[n-1]; setBg(name);
+  const prev = n===1 ? "#/" : `#/${n-1}`;
+  const next = n===TOTAL ? "#/fin" : `#/${n+1}`;
+  const d = DATA[n] || {place:"Lugar, año", text:LOREM[n%LOREM.length]};
+  return `<a class="btn home" href="#/">⌂ Inicio</a>
+  <article class="story">
+    <div class="era">${(TITLE_FIX[n]||title(name)).toUpperCase()}</div>
+    <div class="frame tilt" data-full="${src(name)}"><img src="${src(name)}" alt="${title(name)}"></div>
+    <h2>${d.place}</h2>
+    ${d.text.split(/\n\s*\n/).map((t,i)=>`<p style="--d:${(.45+i*.35).toFixed(2)}s">${t.trim()}</p>`).join("")}
+    <div class="nav">
+      <a class="btn" href="${prev}">← Anterior</a>
+      <a class="btn" href="${next}">Siguiente →</a>
+    </div>
+    <div class="dots"><b style="width:${n/TOTAL*100}%"></b></div>
+    <div class="count">${n} / ${TOTAL}</div>
+  </article>`;
+}
+
+function endView(){
+  setBg(COVER);
+  return `<section class="end">
+    <div class="era">FIN DEL VIAJE</div>
+    <div class="frame tilt" data-full="${src(COVER)}"><img src="${src(COVER)}" alt="Cierre"></div>
+    <h1>Juntos a través de la historia</h1>
+    ${OUTRO.split(/\n\s*\n/).map((t,i)=>`<p style="--d:${(.45+i*.35).toFixed(2)}s">${t.trim()}</p>`).join("")}
+    <a class="btn" href="#/">↺ Volver al inicio</a>
+    ${MUSIC_CREDIT?`<div class="credit">♪ ${MUSIC_CREDIT}</div>`:""}
+  </section>`;
+}
+
+function mapView(){
+  setBg(null);
+  return `<section class="gal">
+    <h1>MAPA DEL VIAJE</h1>
+    <div class="sub">Elige una época y salta directamente a ella</div>
+    <div class="grid map">${MAIN.map((n,i)=>`
+      <a class="card mcard" style="animation-delay:${i*35}ms" href="#/${i+1}">
+        <em>${i+1}</em><img loading="lazy" src="${src(n)}" alt="${title(n)}"><span>${(TITLE_FIX[i+1]||title(n)).toUpperCase()}</span>
+      </a>`).join("")}</div>
+    <div class="back"><a class="btn" href="#/">← Volver</a></div>
+  </section>`;
+}
+
+function galleryView(){
+  setBg(null);
+  return `<section class="gal">
+    <h1>EXTRAS</h1>
+    <div class="sub">Momentos que se quedaron fuera del camino principal</div>
+    <div class="grid">${EXTRAS.map((n,i)=>`
+      <div class="card" style="animation-delay:${i*60}ms" data-full="${src(n)}">
+        <img loading="lazy" src="${src(n)}" alt="${title(n)}"><span>${title(n)}</span>
+      </div>`).join("")}</div>
+    <div class="back"><a class="btn" href="#/">← Volver</a></div>
+  </section>`;
+}
+
+/* inclinación 3D del marco */
+function bindTilt(){
+  document.querySelectorAll(".tilt").forEach(el=>{
+    el.addEventListener("mousemove",e=>{
+      const r=el.getBoundingClientRect();
+      el.style.setProperty("--ry",((e.clientX-r.left)/r.width-.5)*10+"deg");
+      el.style.setProperty("--rx",-((e.clientY-r.top)/r.height-.5)*10+"deg");
+    });
+    el.addEventListener("mouseleave",()=>{el.style.setProperty("--rx","0deg");el.style.setProperty("--ry","0deg")});
+  });
+}
+
+/* inclinación del móvil (giroscopio) → mueve el marco como el ratón en ordenador */
+let gyroOn=false, g0=null;
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+function onTilt(e){
+  if(e.beta==null||e.gamma==null) return;
+  if(g0===null) g0=e.beta;                    // posición "de reposo" al entrar en la página
+  g0 += (e.beta-g0)*0.02;                     // se va adaptando a cómo sujetas el móvil
+  const rx=clamp(-(e.beta-g0)*0.6,-12,12), ry=clamp(e.gamma*0.5,-12,12);
+  document.querySelectorAll(".tilt").forEach(el=>{el.style.setProperty("--rx",rx+"deg");el.style.setProperty("--ry",ry+"deg")});
+}
+function startGyro(){ if(gyroOn) return; gyroOn=true; window.addEventListener("deviceorientation",onTilt); }
+(function initGyro(){
+  if(!("DeviceOrientationEvent" in window) || !matchMedia("(pointer:coarse)").matches) return;
+  if(typeof DeviceOrientationEvent.requestPermission==="function"){      // iPhone: pide permiso con el primer toque
+    document.addEventListener("click",()=>{
+      DeviceOrientationEvent.requestPermission().then(r=>{ if(r==="granted") startGyro(); }).catch(()=>{});
+    },{once:true});
+  } else startGyro();                                                     // Android: directo
+})();
+
+/* lightbox: clic en la imagen = zoom / quitar zoom; clic fuera = cerrar */
+const lbImg = lb.querySelector("img");
+let zoomed = false, base = null, down = null;
+const ZOOM = 2.5;
+function resetZoom(){ zoomed=false; lbImg.classList.remove("zoomed"); lbImg.style.transform=""; }
+function closeLb(){ lb.classList.remove("on"); resetZoom(); }
+function setOrigin(e){
+  const x=Math.min(100,Math.max(0,(e.clientX-base.left)/base.width*100));
+  const y=Math.min(100,Math.max(0,(e.clientY-base.top)/base.height*100));
+  lbImg.style.transformOrigin = x+"% "+y+"%";
+}
+app.addEventListener("click",e=>{
+  const t = e.target.closest("[data-full]");
+  if(t){ resetZoom(); lbImg.src = t.dataset.full; lb.classList.add("on"); }
+});
+lbImg.addEventListener("pointerdown",e=>{ down={x:e.clientX,y:e.clientY}; });
+lbImg.addEventListener("pointermove",e=>{ if(zoomed) setOrigin(e); });   // al mover el ratón / dedo se desplaza la imagen ampliada
+lb.addEventListener("click",e=>{
+  if(e.target!==lbImg) return closeLb();                                 // clic fuera → cerrar
+  if(down && Math.hypot(e.clientX-down.x,e.clientY-down.y)>8) return;    // era un arrastre, no un clic
+  if(zoomed) return resetZoom();                                          // segundo clic → quitar zoom
+  base = lbImg.getBoundingClientRect(); zoomed = true; setOrigin(e);
+  lbImg.classList.add("zoomed"); lbImg.style.transform = "scale("+ZOOM+")";
+});
+
+/* deslizar con el dedo: izquierda = siguiente, derecha = anterior */
+let tx=0, ty=0, tOK=false;
+document.addEventListener("touchstart",e=>{
+  tOK = e.touches.length===1 && !lb.classList.contains("on");
+  if(tOK){ tx=e.touches[0].clientX; ty=e.touches[0].clientY; }
+},{passive:true});
+document.addEventListener("touchend",e=>{
+  if(!tOK) return; tOK=false;
+  const t=e.changedTouches[0], dx=t.clientX-tx, dy=t.clientY-ty;
+  if(Math.abs(dx)<70 || Math.abs(dx)<Math.abs(dy)*1.5) return;      // solo gestos claramente horizontales
+  const h=location.hash.replace(/^#\/?/,""), n=+h;
+  if(/^\d+$/.test(h) && n>=1 && n<=TOTAL){
+    location.hash = dx<0 ? (n===TOTAL ? "#/fin" : `#/${n+1}`) : (n===1 ? "#/" : `#/${n-1}`);
+  } else if(h==="fin" && dx>0){ location.hash = `#/${TOTAL}`; }
+},{passive:true});
+
+/* teclado */
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape") return closeLb();
+  if(lb.classList.contains("on")) return;
+  const h = location.hash.replace(/^#\/?/,""); const n = +h;
+  if(/^\d+$/.test(h) && n>=1){
+    if(e.key==="ArrowRight") location.hash = n===TOTAL ? "#/fin" : `#/${n+1}`;
+    if(e.key==="ArrowLeft")  location.hash = n===1 ? "#/" : `#/${n-1}`;
+  }
+});
+
+window.addEventListener("hashchange",render);
+render();
+</script>
+</body>
+</html>
