@@ -6,8 +6,7 @@
 <title>Juntos a través de la historia</title>
 <meta name="description" content="Desde el principio de la historia hasta el último rincón del futuro. Mil vidas, mil épocas. Nosotros. Siempre. Tú y yo.">
 <meta name="theme-color" content="#0d0a0f">
-<!-- Vista previa al compartir el enlace (WhatsApp, Telegram, etc.) -->
-<!-- IMPORTANTE: cambia aitor2512 y Always por los tuyos de GitHub -->
+
 <meta property="og:type" content="website">
 <meta property="og:title" content="Juntos a través de la historia">
 <meta property="og:description" content="Desde el principio de la historia hasta el último rincón del futuro. Mil vidas, mil épocas. Nosotros. Siempre. Tú y yo.">
@@ -39,7 +38,6 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-grad
 .enter{animation:enter .8s cubic-bezier(.2,.7,.2,1) both}
 @keyframes enter{from{opacity:0;transform:translateY(24px) scale(.98)}to{opacity:1;transform:none}}
 
-/* botones */
 .btn{position:relative;display:inline-flex;align-items:center;gap:.6em;padding:.85em 2em;border:1px solid var(--gold);color:var(--gold);background:rgba(0,0,0,.35);
   font-family:var(--title);letter-spacing:.2em;text-transform:uppercase;font-size:.85rem;cursor:pointer;text-decoration:none;overflow:hidden;backdrop-filter:blur(6px);transition:color .4s,box-shadow .4s,transform .3s}
 .btn::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--gold2),var(--gold));transform:translateX(-101%);transition:transform .45s cubic-bezier(.2,.7,.2,1);z-index:-1}
@@ -47,7 +45,6 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-grad
 .btn:hover::before{transform:none}
 .btn[disabled]{opacity:.3;pointer-events:none}
 
-/* portada */
 .cover{position:fixed;inset:0;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
 .cover-img{position:absolute;inset:0;background-size:cover;background-position:center 20%;z-index:-1;animation:kb 30s ease-in-out infinite alternate}
 @keyframes kb{to{transform:scale(1.12)}}
@@ -68,7 +65,6 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-grad
 .cover p span:nth-child(3){margin-top:.35rem;font-size:1.15rem;letter-spacing:.3em}
 .extras-btn{position:fixed;right:24px;bottom:24px;padding:.6em 1.3em;font-size:.7rem}
 
-/* página de historia */
 .story{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:680px;width:100%;padding-top:30px}
 .era{font-family:var(--title);color:var(--gold);letter-spacing:.3em;font-size:clamp(1.1rem,2.6vw,1.6rem);font-weight:600;margin-bottom:1rem;text-shadow:0 2px 14px rgba(0,0,0,.7)}
 .frame{position:relative;width:min(88vw,calc(min(62vh,640px)*2/3));aspect-ratio:2/3;padding:10px;background:linear-gradient(135deg,var(--gold),var(--gold2) 50%,#f7e2a8);border-radius:4px;
@@ -87,14 +83,12 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-grad
 .count{font-family:var(--title);font-size:.7rem;letter-spacing:.3em;color:var(--gold);margin-top:.6rem;opacity:.8}
 .home{position:fixed;left:20px;top:20px;padding:.5em 1.1em;font-size:.65rem}
 
-/* final */
 .end{text-align:center;max-width:620px}
 .end h1{font-family:var(--title);font-size:clamp(1.8rem,5vw,3.2rem);letter-spacing:.12em;color:#fff3d1;margin:1.5rem 0 1rem}
 .end p{line-height:1.7;margin-bottom:1.1rem}
 .end p:last-of-type{font-style:italic;color:var(--gold);font-size:1.4rem;margin:1.4rem 0 2rem}
 .end .frame{margin:0 auto;width:min(80vw,calc(min(46vh,440px)*2/3))}
 
-/* galería */
 .gal{width:100%;max-width:1100px}
 .gal h1{font-family:var(--title);text-align:center;letter-spacing:.2em;color:#fff3d1;font-size:clamp(1.6rem,4vw,2.6rem);margin:2.5rem 0 .5rem}
 .gal .sub{text-align:center;font-style:italic;opacity:.8;margin-bottom:2rem}
@@ -107,7 +101,6 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-grad
 .card:hover span{transform:none}
 .gal .back{display:flex;justify-content:center;padding-bottom:2rem}
 
-/* música */
 .snd{position:fixed;top:14px;right:18px;z-index:30;width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--gold);border-radius:50%;color:var(--gold);background:rgba(0,0,0,.5);backdrop-filter:blur(6px);cursor:pointer;transition:background .3s,color .3s,transform .3s}
 .snd:hover{background:var(--gold);color:#1a1208;transform:scale(1.08)}
 .snd .x{display:none}
@@ -117,30 +110,28 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-grad
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(227,192,122,.45)}50%{box-shadow:0 0 0 10px rgba(227,192,122,0)}}
 .credit{margin-top:1.4rem;font-family:var(--title);font-size:.6rem;letter-spacing:.2em;color:var(--gold);opacity:.6}
 
-/* mapa del viaje */
 .map-btn{bottom:72px}
 .mcard{display:block;cursor:pointer;color:inherit;text-decoration:none}
 .mcard span{transform:none;padding:22px 8px 10px;font-size:.62rem}
 .mcard em{position:absolute;top:8px;left:8px;z-index:2;font-style:normal;font-family:var(--title);font-size:.7rem;color:var(--gold);background:rgba(0,0,0,.7);border:1px solid rgba(227,192,122,.5);border-radius:50%;width:30px;height:30px;display:grid;place-items:center}
 .gal .grid.map{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
 
-/* aparición de los textos */
 @keyframes txt{from{opacity:0;transform:translateY(14px)}to{opacity:var(--o,1);transform:none}}
 .story p,.end p{animation:txt .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0s)}
 .story p{--o:.92}
 @media(prefers-reduced-motion:reduce){.story p,.end p{animation:none}}
 
-/* lightbox */
 #lb{position:fixed;inset:0;z-index:50;display:none;place-items:center;background:rgba(4,2,6,.94);cursor:pointer;backdrop-filter:blur(8px);overflow:hidden}
 #lb.on{display:grid;animation:fade .35s}
 #lb img{max-width:90vw;max-height:88vh;object-fit:contain;box-shadow:0 0 80px rgba(227,192,122,.25);animation:zoom .45s cubic-bezier(.2,.7,.2,1);cursor:zoom-in;touch-action:none;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
 #lb img.zoomed{cursor:zoom-out}
+#lb img.dragging{transition:none}
 .lbx{position:fixed;top:14px;right:18px;width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--gold);border-radius:50%;color:var(--gold);font-size:1.1rem;background:rgba(0,0,0,.5);transition:background .3s,color .3s}
 .lbx:hover{background:var(--gold);color:#1a1208}
 .lbhint{position:fixed;bottom:14px;left:0;right:0;text-align:center;font-family:var(--title);font-size:.65rem;letter-spacing:.25em;color:var(--gold);opacity:.6;pointer-events:none}
 @keyframes fade{from{opacity:0}}
 @keyframes zoom{from{transform:scale(.85);opacity:0}}
-/* pantallas muy bajas (móvil en horizontal): solo ahí la portada permite scroll */
+
 @media(max-height:620px){
   .cover{overflow-y:auto}
   .cover-img,.cover::before{position:fixed;animation:none}
@@ -178,9 +169,9 @@ body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-grad
 <div id="lb"><span class="lbx">✕</span><img alt=""><div class="lbhint">CLIC EN LA IMAGEN PARA AMPLIAR · CLIC FUERA PARA CERRAR</div></div>
 
 <script>
-/* ============ CONFIGURACIÓN ============ */
+
 const FOLDER = "img/";
-const EXT = "png";               // ← cambia a jpg / webp si hace falta
+const EXT = "png";
 const COVER = "0 - Portada y Cierre";
 const MAIN = [
 "1 - Prehistoria","2 - Babilonia-Mesopotamia","3 - Egipto","4 - Grecia","5 - Roma Imperial","6 - Antiguedad Tardía",
@@ -200,7 +191,7 @@ const LOREM = [
 "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa.",
 "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur."
 ];
-/* Textos por época: lugar y año + texto (párrafos separados por línea en blanco) */
+
 const DATA = {
 1:{place:"Europa occidental, hacia el 12.000 a. C.",text:`Aprendí a encender el fuego solo para verte sonreír al calor de la hoguera. Cada mañana salíamos juntos a descubrir nuestro mundo y, cuando caía la noche, nos sentábamos bajo las estrellas mientras descansábamos después de recorrer bosques y valles. Te recogía flores cuando encontraba alguna bonita y juntos dejamos nuestras manos pintadas en las paredes de nuestra cueva, como si ya entonces quisiéramos dejar un pequeño recuerdo de nosotros para quienes vinieran después. No teníamos casi nada, pero teníamos nuestro refugio, nuestro fuego y nuestras noches juntos. Y recuerdo pensar que, si aquella era toda la vida que nos había tocado vivir, mientras estuvieras tú, ya tenía suficiente.`},
 2:{place:"Babilonia, Mesopotamia, hacia el 575 a. C.",text:`Vivimos junto al Éufrates, rodeados de enormes murallas, calles de ladrillo y puertas cubiertas de aquellos brillantes azulejos azules que parecían cambiar de color cuando les daba el sol. Por las mañanas recorríamos juntos los mercados, entre puestos de dátiles, panes, telas y especias, y siempre terminábamos comprando alguna cosa que realmente no necesitábamos porque a ti te hacía ilusión llevarla a casa. Por las tardes me gustaba esperarte cerca del río mientras el calor empezaba a desaparecer y las palmeras se movían con el viento.
@@ -427,7 +418,6 @@ Tú y yo.
 Y si algún día volvemos a mirar estas páginas cuando hayan pasado muchos años, espero que recordemos que, entre todas las vidas que podríamos haber vivido, en todas las épocas que podríamos haber conocido y en todos los lugares donde podríamos haber terminado...
 
 siempre volvería a elegir vivirlas contigo.`;
-/* ======================================= */
 
 const src = n => FOLDER + encodeURIComponent(n) + "." + EXT;
 const title = n => n.replace(/^(Extra )?\d+ - /, "").replace(/ \(\d+\)$/, "");
@@ -435,10 +425,9 @@ const $ = s => document.querySelector(s);
 const app = $("#app"), bg = $("#bg"), lb = $("#lb");
 const TOTAL = MAIN.length;
 
-/* ============ MÚSICA DE FONDO ============ */
-const MUSIC = "audio/musica.mp3";     // ← nombre/ruta de tu archivo
-const MUSIC_CREDIT = "";              // ← opcional: "Canción – Autor" (se muestra en la página final)
-const MUSIC_VOL = 0.35;               // volumen (0 a 1)
+const MUSIC = "audio/musica.mp3";
+const MUSIC_CREDIT = "";
+const MUSIC_VOL = 0.35;
 const snd = $("#snd");
 const bgm = new Audio(); bgm.loop = true; bgm.volume = 0; bgm.preload = "none"; bgm.src = encodeURI(MUSIC);
 let musicWanted = true, started = false, fadeT = null;
@@ -452,9 +441,9 @@ function sndUI(){ snd.classList.toggle("off",!musicWanted); snd.classList.toggle
 function playMusic(){ bgm.play().then(()=>{ started=true; fade(MUSIC_VOL,3000); sndUI(); }).catch(()=>{}); }
 function stopMusic(){ fade(0,600,()=>{ bgm.pause(); sndUI(); }); }
 function firstTouch(e){
-  if(e.target.closest && e.target.closest("#snd")) return;      // el botón de música lo gestiona él solo
+  if(e.target.closest && e.target.closest("#snd")) return;
   document.removeEventListener("click",firstTouch); document.removeEventListener("touchend",firstTouch);
-  if(musicWanted) playMusic();                                   // arranca con el primer toque/clic de la persona
+  if(musicWanted) playMusic();
 }
 document.addEventListener("click",firstTouch); document.addEventListener("touchend",firstTouch);
 snd.addEventListener("click",e=>{
@@ -467,17 +456,15 @@ document.addEventListener("visibilitychange",()=>{
   if(document.hidden){ if(!bgm.paused) bgm.pause(); }
   else if(musicWanted && started) bgm.play().catch(()=>{});
 });
-bgm.addEventListener("error",()=>{ snd.style.display="none"; });  // si no encuentra el archivo, oculta el botón
+bgm.addEventListener("error",()=>{ snd.style.display="none"; });
 sndUI();
 
-/* partículas */
 (()=>{const d=$("#dust");for(let i=0;i<28;i++){const p=document.createElement("i");
 p.style.left=Math.random()*100+"%";p.style.animationDuration=(10+Math.random()*16)+"s";
 p.style.animationDelay=(-Math.random()*20)+"s";const s=1+Math.random()*3;p.style.width=p.style.height=s+"px";d.appendChild(p)}})();
 
 function setBg(name){ bg.style.backgroundImage = name ? `url("${src(name)}")` : "none"; }
 
-/* rutas */
 function render(){
   const h = location.hash.replace(/^#\/?/,"");
   window.scrollTo(0,0); g0=null;
@@ -491,7 +478,7 @@ function render(){
   const first = app.firstElementChild; if(first) first.classList.add("enter");
   bindTilt();
   [...MAIN, ...EXTRAS].slice(0,0);
-  // precarga vecinas
+
   if(/^\d+$/.test(h)){ [+h-1,+h+1].forEach(i=>{ if(MAIN[i-1]) new Image().src = src(MAIN[i-1]); }); }
 }
 
@@ -568,7 +555,6 @@ function galleryView(){
   </section>`;
 }
 
-/* inclinación 3D del marco */
 function bindTilt(){
   document.querySelectorAll(".tilt").forEach(el=>{
     el.addEventListener("mousemove",e=>{
@@ -580,52 +566,76 @@ function bindTilt(){
   });
 }
 
-/* inclinación del móvil (giroscopio) → mueve el marco como el ratón en ordenador */
 let gyroOn=false, g0=null;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 function onTilt(e){
   if(e.beta==null||e.gamma==null) return;
-  if(g0===null) g0=e.beta;                    // posición "de reposo" al entrar en la página
-  g0 += (e.beta-g0)*0.02;                     // se va adaptando a cómo sujetas el móvil
+  if(g0===null) g0=e.beta;
+  g0 += (e.beta-g0)*0.02;
   const rx=clamp(-(e.beta-g0)*0.6,-12,12), ry=clamp(e.gamma*0.5,-12,12);
   document.querySelectorAll(".tilt").forEach(el=>{el.style.setProperty("--rx",rx+"deg");el.style.setProperty("--ry",ry+"deg")});
 }
 function startGyro(){ if(gyroOn) return; gyroOn=true; window.addEventListener("deviceorientation",onTilt); }
 (function initGyro(){
   if(!("DeviceOrientationEvent" in window) || !matchMedia("(pointer:coarse)").matches) return;
-  if(typeof DeviceOrientationEvent.requestPermission==="function"){      // iPhone: pide permiso con el primer toque
+  if(typeof DeviceOrientationEvent.requestPermission==="function"){
     document.addEventListener("click",()=>{
       DeviceOrientationEvent.requestPermission().then(r=>{ if(r==="granted") startGyro(); }).catch(()=>{});
     },{once:true});
-  } else startGyro();                                                     // Android: directo
+  } else startGyro();
 })();
 
-/* lightbox: clic en la imagen = zoom / quitar zoom; clic fuera = cerrar */
 const lbImg = lb.querySelector("img");
-let zoomed = false, base = null, down = null;
+let zoomed = false, base = null, down = null, drag = null, ptype = "mouse", px = 0, py = 0;
 const ZOOM = 2.5;
-function resetZoom(){ zoomed=false; lbImg.classList.remove("zoomed"); lbImg.style.transform=""; }
+function resetZoom(){
+  zoomed=false; drag=null; px=0; py=0;
+  lbImg.classList.remove("zoomed","dragging");
+  lbImg.style.transform=""; lbImg.style.transformOrigin="";
+}
 function closeLb(){ lb.classList.remove("on"); resetZoom(); }
 function setOrigin(e){
   const x=Math.min(100,Math.max(0,(e.clientX-base.left)/base.width*100));
   const y=Math.min(100,Math.max(0,(e.clientY-base.top)/base.height*100));
   lbImg.style.transformOrigin = x+"% "+y+"%";
 }
+function applyPan(){
+  const mx=base.width*(ZOOM-1)/2, my=base.height*(ZOOM-1)/2;
+  px=Math.max(-mx,Math.min(mx,px)); py=Math.max(-my,Math.min(my,py));
+  lbImg.style.transform="translate("+px+"px,"+py+"px) scale("+ZOOM+")";
+}
 app.addEventListener("click",e=>{
   const t = e.target.closest("[data-full]");
   if(t){ resetZoom(); lbImg.src = t.dataset.full; lb.classList.add("on"); }
 });
-lbImg.addEventListener("pointerdown",e=>{ down={x:e.clientX,y:e.clientY}; });
-lbImg.addEventListener("pointermove",e=>{ if(zoomed) setOrigin(e); });   // al mover el ratón / dedo se desplaza la imagen ampliada
+lbImg.addEventListener("pointerdown",e=>{
+  down={x:e.clientX,y:e.clientY}; ptype=e.pointerType;
+  if(zoomed && ptype!=="mouse"){ drag={x:e.clientX,y:e.clientY}; lbImg.classList.add("dragging"); }
+});
+lbImg.addEventListener("pointermove",e=>{
+  if(!zoomed) return;
+  if(ptype==="mouse"){ setOrigin(e); return; }
+  if(drag){ px+=e.clientX-drag.x; py+=e.clientY-drag.y; drag.x=e.clientX; drag.y=e.clientY; applyPan(); }
+});
+function endDrag(){ drag=null; lbImg.classList.remove("dragging"); }
+lbImg.addEventListener("pointerup",endDrag);
+lbImg.addEventListener("pointercancel",endDrag);
 lb.addEventListener("click",e=>{
-  if(e.target!==lbImg) return closeLb();                                 // clic fuera → cerrar
-  if(down && Math.hypot(e.clientX-down.x,e.clientY-down.y)>8) return;    // era un arrastre, no un clic
-  if(zoomed) return resetZoom();                                          // segundo clic → quitar zoom
-  base = lbImg.getBoundingClientRect(); zoomed = true; setOrigin(e);
-  lbImg.classList.add("zoomed"); lbImg.style.transform = "scale("+ZOOM+")";
+  if(e.target!==lbImg) return closeLb();
+  if(down && Math.hypot(e.clientX-down.x,e.clientY-down.y)>8) return;
+  if(zoomed) return resetZoom();
+  base = lbImg.getBoundingClientRect(); zoomed = true;
+  lbImg.classList.add("zoomed");
+  if(ptype==="mouse"){
+    setOrigin(e); lbImg.style.transform = "scale("+ZOOM+")";
+  } else {
+    lbImg.style.transformOrigin = "50% 50%";
+    px = -(e.clientX-(base.left+base.width/2))*(ZOOM-1);
+    py = -(e.clientY-(base.top+base.height/2))*(ZOOM-1);
+    applyPan();
+  }
 });
 
-/* deslizar con el dedo: izquierda = siguiente, derecha = anterior */
 let tx=0, ty=0, tOK=false;
 document.addEventListener("touchstart",e=>{
   tOK = e.touches.length===1 && !lb.classList.contains("on");
@@ -634,14 +644,13 @@ document.addEventListener("touchstart",e=>{
 document.addEventListener("touchend",e=>{
   if(!tOK) return; tOK=false;
   const t=e.changedTouches[0], dx=t.clientX-tx, dy=t.clientY-ty;
-  if(Math.abs(dx)<70 || Math.abs(dx)<Math.abs(dy)*1.5) return;      // solo gestos claramente horizontales
+  if(Math.abs(dx)<70 || Math.abs(dx)<Math.abs(dy)*1.5) return;
   const h=location.hash.replace(/^#\/?/,""), n=+h;
   if(/^\d+$/.test(h) && n>=1 && n<=TOTAL){
     location.hash = dx<0 ? (n===TOTAL ? "#/fin" : `#/${n+1}`) : (n===1 ? "#/" : `#/${n-1}`);
   } else if(h==="fin" && dx>0){ location.hash = `#/${TOTAL}`; }
 },{passive:true});
 
-/* teclado */
 document.addEventListener("keydown",e=>{
   if(e.key==="Escape") return closeLb();
   if(lb.classList.contains("on")) return;
